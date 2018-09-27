@@ -1,5 +1,5 @@
-FROM ubuntu:16.04
-MAINTAINER Ali Diouri <alidiouri@gmail.com>
+FROM ubuntu:17.10
+MAINTAINER Dylan Van Assche <dylan.van.assche@protonmail.com> 
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
