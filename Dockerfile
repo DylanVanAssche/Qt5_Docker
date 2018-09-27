@@ -6,7 +6,6 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
-RUN sed -i 's/ universe/ universe multiverse/' /etc/apt/sources.list
 RUN apt update &&                  \
     apt upgrade -y &&              \
     apt dist-upgrade -y &&         \
@@ -31,7 +30,10 @@ RUN apt update &&                  \
         libgl1-mesa-dev            \
         libudev-dev                \
         qt5-default                \
-        qtbase5-private-dev      &&\
+        qttools5-dev               \
+        qtdeclarative5-dev         \
+        qtpositioning5-dev         \
+        qtbase5-dev              &&\
     apt clean
 
 WORKDIR /home/root/
