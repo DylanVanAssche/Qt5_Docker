@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.10
 MAINTAINER Dylan Van Assche <dylan.van.assche@protonmail.com> 
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
