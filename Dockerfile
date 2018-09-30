@@ -3,7 +3,6 @@ MAINTAINER Ali Diouri <alidiouri@gmail.com>
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-RUN sed -i 's/ universe/ universe multiverse/' /etc/apt/sources.list
 RUN apt update &&                  \
     apt upgrade -y &&              \
     apt install -y                 \
@@ -21,7 +20,12 @@ RUN apt update &&                  \
         libx11-dev                 \
         libgl1-mesa-dev            \
         libudev-dev                \
-        qt5-default
+        qt5-default                \
+        qttools5-dev               \
+        qtdeclarative5-dev         \
+        qtpositioning5-dev         \
+        qt5-default              &&\
+    apt clean
 
 WORKDIR /home/root/
 
