@@ -1,13 +1,11 @@
-FROM ubuntu:16.04
-MAINTAINER Ali Diouri <alidiouri@gmail.com>
+FROM ubuntu:XX.XX
+MAINTAINER Dylan Van Assche <dylan.van.assche@protonmail.com> 
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-RUN echo 'deb http://ppa.launchpad.net/beineri/opt-qt58-xenial/ubuntu xenial main' >> /etc/apt/sources.list
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E9977759 
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
 
-# install depdencies
-RUN sed -i 's/ universe/ universe multiverse/' /etc/apt/sources.list
 RUN apt update &&                  \
     apt upgrade -y &&              \
     apt dist-upgrade -y &&         \
@@ -16,6 +14,10 @@ RUN apt update &&                  \
         wget                       \
         xvfb                       \
         flex                       \
+        dh-make                    \
+        debhelper                  \
+        checkinstall               \
+        fuse                       \
         snapcraft                  \
         bison                      \
         libxcursor-dev             \
@@ -27,15 +29,12 @@ RUN apt update &&                  \
         libx11-dev                 \
         libgl1-mesa-dev            \
         libudev-dev                \
-        qt58-meta-full &&          \
+        qt5-default                \
+        qttools5-dev               \
+        qtdeclarative5-dev         \
+        qtpositioning5-dev         \
+        qtbase5-dev              &&\
     apt clean
-
-ENV QT_BASE_DIR=/opt/qt58
-ENV QTDIR=$QT_BASE_DIR
-ENV PATH=$QT_BASE_DIR/bin:$PATH
-ENV LD_LIBRARY_PATH=$QT_BASE_DIR/lib:$LD_LIBRARY_PATH
-ENV PKG_CONFIG_PATH=$QT_BASE_DIR/lib/pkgconfig:$PKG_CONFIG_PATH
-
 
 WORKDIR /home/root/
 
