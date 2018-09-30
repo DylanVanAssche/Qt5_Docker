@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Ali Diouri <alidiouri@gmail.com>
+MAINTAINER Dylan Van Assche <dylan.van.assche@protonmail.com> 
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
