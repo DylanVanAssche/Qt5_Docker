@@ -6,7 +6,6 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
 
-RUN sed -i 's/ universe/ universe multiverse/' /etc/apt/sources.list
 RUN apt update &&                  \
     apt upgrade -y &&              \
     apt dist-upgrade -y &&         \
